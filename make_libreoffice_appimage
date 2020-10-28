@@ -476,6 +476,8 @@ cd $APP.AppDir/ || exit
 
 find ../ -name "*.deb" -exec dpkg -x \{\} . \;
 
+find ./opt/libreoffice*/share/fonts -depth -mindepth 1 -delete
+
 if [[ $optPortable != "N" ]] ; then
 
      find . -type f -iname "bootstraprc" -exec sed -i "s|^UserInstallation=.*|UserInstallation=\$SYSUSERCONFIG/libreoffice/$nrVersion|g" {} +
